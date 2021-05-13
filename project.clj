@@ -1,4 +1,4 @@
-(defproject io.gamayun/pedestal.vase "0.9.4-SNAPSHOT"
+(defproject io.gamayun/pedestal.vase "0.9.4"
   :description "Vase: Pedestal API Container"
   :url "https://github.com/cognitect-labs/vase"
   :dependencies [;; Platform
