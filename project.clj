@@ -26,7 +26,7 @@
                  [joda-time "2.9.9"]
 
                  ;; Configuration
-                 [com.cognitect/fern "0.1.5"]
+                 [io.gamayun/fern "0.1.7"]
 
                  ;; Replace Java EE module for JDK 11
                  [javax.xml.bind/jaxb-api "2.3.0"]
@@ -58,7 +58,7 @@
                                     "test/resources"]
                    :dependencies [[org.clojure/tools.trace "0.7.10"]
                                   [org.clojure/tools.namespace "0.3.0" :exclusions [[org.clojure/tools.reader]]]
-                                  [org.clojure/tools.reader "1.3.2"]
+                                  [org.clojure/tools.reader "1.3.5"]
                                   [org.clojure/test.check "0.9.0"]
                                    ;; Logging
                                   [org.slf4j/slf4j-api "1.7.26"]
