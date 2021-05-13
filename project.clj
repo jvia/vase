@@ -1,4 +1,4 @@
-(defproject io.gamayun/pedestal.vase "0.9.4"
+(defproject io.gamayun/pedestal.vase "0.9.5-SNAPSHOT"
   :description "Vase: Pedestal API Container"
   :url "https://github.com/cognitect-labs/vase"
   :dependencies [;; Platform
@@ -34,7 +34,8 @@
                  ;; Cleanup
                  [commons-codec "1.12"]
                  [cheshire "5.8.1"]]
-
+  :repositories [["releases" {:url   "https://repo.clojars.org"
+                              :creds :gpg}]]
   :main          ^:skip-aot com.cognitect.vase.main
   :pedantic?     :warn
   :uberjar-name  "vase-standalone.jar"
@@ -50,26 +51,26 @@
 
   :profiles {:srepl {:jvm-opts ^:replace ["-XX:+UseG1GC"
                                           "-Dclojure.server.repl={:port 5555 :accept clojure.core.server/repl}"]}
-             :dev {:aliases {"crepl" ["trampoline" "run" "-m" "clojure.main/main"]
-                             "srepl" ["with-profile" "srepl" "trampoline" "run" "-m" "clojure.main/main"]}
-                   :source-paths ["dev"]
-                   :resource-paths ["config"
-                                    "resources"
-                                    "test/resources"]
-                   :dependencies [[org.clojure/tools.trace "0.7.10"]
-                                  [org.clojure/tools.namespace "0.3.0" :exclusions [[org.clojure/tools.reader]]]
-                                  [org.clojure/tools.reader "1.3.5"]
-                                  [org.clojure/test.check "0.9.0"]
-                                   ;; Logging
-                                  [org.slf4j/slf4j-api "1.7.26"]
-                                  [ch.qos.logback/logback-classic "1.2.3" :exclusions [[org.slf4j/slf4j-api]]]
-                                  [org.slf4j/jul-to-slf4j "1.7.26"]
-                                  [org.slf4j/jcl-over-slf4j "1.7.26"]
-                                  [org.slf4j/log4j-over-slf4j "1.7.26"]]}
-             :test {:dependencies [[org.clojure/test.check "0.9.0"]
-                                   [io.pedestal/pedestal.service-tools "0.5.7" :exclusions [[org.slf4j/log4j-over-slf4j]
-                                                                                            [org.slf4j/jul-to-slf4j]
-                                                                                            [org.slf4j/jcl-over-slf4j]]]]
-                    :resource-paths ["resources"
-                                     "test/resources"]}}
+             :dev   {:aliases        {"crepl" ["trampoline" "run" "-m" "clojure.main/main"]
+                                      "srepl" ["with-profile" "srepl" "trampoline" "run" "-m" "clojure.main/main"]}
+                     :source-paths   ["dev"]
+                     :resource-paths ["config"
+                                      "resources"
+                                      "test/resources"]
+                     :dependencies   [[org.clojure/tools.trace "0.7.10"]
+                                    [org.clojure/tools.namespace "0.3.0" :exclusions [[org.clojure/tools.reader]]]
+                                    [org.clojure/tools.reader "1.3.5"]
+                                    [org.clojure/test.check "0.9.0"]
+                                    ;; Logging
+                                    [org.slf4j/slf4j-api "1.7.26"]
+                                    [ch.qos.logback/logback-classic "1.2.3" :exclusions [[org.slf4j/slf4j-api]]]
+                                    [org.slf4j/jul-to-slf4j "1.7.26"]
+                                    [org.slf4j/jcl-over-slf4j "1.7.26"]
+                                    [org.slf4j/log4j-over-slf4j "1.7.26"]]}
+             :test  {:dependencies   [[org.clojure/test.check "0.9.0"]
+                                    [io.pedestal/pedestal.service-tools "0.5.7" :exclusions [[org.slf4j/log4j-over-slf4j]
+                                                                                             [org.slf4j/jul-to-slf4j]
+                                                                                             [org.slf4j/jcl-over-slf4j]]]]
+                     :resource-paths ["resources"
+                                      "test/resources"]}}
   :min-lein-version "2.0.0")
